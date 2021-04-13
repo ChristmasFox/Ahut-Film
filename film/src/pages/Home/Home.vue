@@ -2,8 +2,8 @@
     <div id="home">
         <div :class="['search-header',{'active':headerActive}]">
           <span class="location">安徽工业大学</span>
-          <span class="search"><span class="icon-search"></span><input type="text" placeholder="找电影、影院" @focus="$router.push('search_all')"></span>
-          <span class="date"><span class="calender"><span class="day">{{new Date().getDate()<10?'0'+new Date().getDate():new Date().getDate()}}</span></span></span>
+          <span class="search"><span class="icon-search"></span><input type="text" placeholder="搜索电影或影院" @focus="$router.push('search_all')"></span>
+          <span class="date"><span class="calender"><span class="day">{{new Date().getDate() &lt; 10 ?'0'+new Date().getDate():new Date().getDate()}}</span></span></span>
         </div>
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -104,7 +104,7 @@
           window.addEventListener('scroll', this.handleScroll)
         },
       methods:{
-        //处理滚动
+        //处理滚动 (显示顶部栏颜色)
         handleScroll(){
           window.pageYOffset>window.innerWidth*80/360 ? this.headerActive = true : this.headerActive = false
         },
@@ -112,15 +112,18 @@
         async loadMovieList(){
           let json = await getMovieList();
           json.data.forEach((value,index)=>{
+            // 若放映时间在当前时间之前 则为正在热映
             if (new Date()-new Date(value.public_date)>=0){
               this.hotMovieList.push(value);
             } else{
               this.notShowMovieList.push(value);
             }
           });
+          // 按评分排序
           this.hotMovieList.sort((a,b)=>{
             return b.score-a.score;
           });
+          // 按评论数排序
           this.notShowMovieList.sort((a,b)=>{
             return b.wish_num-a.wish_num;
           });

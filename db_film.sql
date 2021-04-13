@@ -58,31 +58,6 @@ CREATE TABLE `t_cinema`  (
 INSERT INTO `t_cinema` VALUES (1, '幸福蓝海国际影城(马鞍山金鹰店)', '13279112887', '安徽', '马鞍山', '花山区', '花山区湖南西路与湖东北路交叉口金鹰天地7楼');
 INSERT INTO `t_cinema` VALUES (2, '横店影城(马鞍山伟星时代广场店)', '13279112887', '安徽', '马鞍山', '雨山区', '雨山区红旗路和湖南路交叉口伟星时代广场四楼');
 
--- ----------------------------
--- Table structure for t_comment
--- ----------------------------
-DROP TABLE IF EXISTS `t_comment`;
-CREATE TABLE `t_comment`  (
-  `comment_id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '评论id',
-  `user_id` int(4) UNSIGNED NULL DEFAULT NULL COMMENT '用户id',
-  `movie_id` int(4) UNSIGNED NULL DEFAULT NULL COMMENT '电影id',
-  `user_score` int(4) UNSIGNED NULL DEFAULT NULL COMMENT '用户评分',
-  `comment_content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL COMMENT '用户评论内容',
-  `comment_date` datetime(6) NULL DEFAULT NULL COMMENT '评论日期',
-  `support_num` int(4) UNSIGNED NULL DEFAULT NULL COMMENT '点赞数',
-  `is_pass` int(1) NULL DEFAULT 0 COMMENT '评论是否通过审核',
-  `support_user` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL COMMENT '点赞用户数组',
-  PRIMARY KEY (`comment_id`) USING BTREE,
-  INDEX `t_comment_ibfk_1`(`user_id`) USING BTREE,
-  INDEX `t_comment_ibfk_2`(`movie_id`) USING BTREE,
-  CONSTRAINT `t_comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `t_comment_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `t_movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of t_comment
--- ----------------------------
-INSERT INTO `t_comment` VALUES (1, 1, 4, 9, '很好看，挺悲伤的，让我哭一会！', '2021-04-12 15:11:02.000000', 0, 1, NULL);
 
 -- ----------------------------
 -- Table structure for t_hall
@@ -212,25 +187,5 @@ CREATE TABLE `t_user`  (
 -- Records of t_user
 -- ----------------------------
 INSERT INTO `t_user` VALUES (1, '17891609310', '/images/avatar/1618210662674.jpg', '123456', '17891609310', '男', '1999-2-28', '安工大电影');
-
--- ----------------------------
--- Table structure for t_wishmovie
--- ----------------------------
-DROP TABLE IF EXISTS `t_wishmovie`;
-CREATE TABLE `t_wishmovie`  (
-  `wishMovie_id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '想看电影id',
-  `user_id` int(4) UNSIGNED NULL DEFAULT NULL COMMENT '用户id',
-  `movie_id` int(4) UNSIGNED NULL DEFAULT NULL COMMENT '电影id',
-  PRIMARY KEY (`wishMovie_id`) USING BTREE,
-  INDEX `t_wishmovie_ibfk_1`(`user_id`) USING BTREE,
-  INDEX `t_wishmovie_ibfk_2`(`movie_id`) USING BTREE,
-  CONSTRAINT `t_wishmovie_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `t_wishmovie_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `t_movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 118 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of t_wishmovie
--- ----------------------------
-INSERT INTO `t_wishmovie` VALUES (74, 1, 20);
 
 SET FOREIGN_KEY_CHECKS = 1;

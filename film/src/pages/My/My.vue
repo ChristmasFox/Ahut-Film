@@ -18,8 +18,6 @@
       <div class="content">
           <div class="list">
             <div class="item" @click="viewMyOrder">我的订单 <span class="icon-more"></span></div>
-            <div class="item" @click="viewMyMovie(1)">想看的电影 <span class="icon-more"></span></div>
-            <div class="item" @click="viewMyMovie(0)">看过的电影 <span class="icon-more"></span></div>
           </div>
       </div>
     </div>
@@ -79,14 +77,6 @@
               this.$router.push('login');
             }
           },
-          //查看个人电影
-          viewMyMovie(flag){
-            if (this.$cookies.get('user_id')) {
-              this.$router.push({path:'my_movie',query:{'user_id':this.$cookies.get('user_id'),'wish_movie':flag}});
-            } else{
-              this.$router.push('login');
-            }
-          }
         },
     }
 </script>

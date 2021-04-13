@@ -8,7 +8,6 @@ import SearchAll from '../pages/Home/children/SearchAll'
 import Movie from '../pages/Movie/Movie'
 import SearchMovie from '../pages/Movie/children/SearchMovie'
 import MovieDetail from '../components/MovieDetail/MovieDetail'
-import CommentPanel from '../components/MovieDetail/children/CommentPanel'
 import Cinema from '../pages/Cinema/Cinema'
 import CinemaDetail from '../components/CinemaDetail/CinemaDetail'
 import SearchCinema from '../pages/Cinema/children/SearchCinema'
@@ -19,7 +18,6 @@ import Pay from '../components/Pay/Pay'
 import My from '../pages/My/My'
 import MyInfo from '../pages/My/children/MyInfo'
 import MyOrder from '../pages/My/children/MyOrder'
-import MyMovie from '../pages/My/children/MyMovie'
 import ModifyUserName from '../pages/My/children/ModifyUserName'
 import ModifyUserSign from '../pages/My/children/ModifyUserSign'
 
@@ -68,11 +66,6 @@ export default new Router({
       component:MyOrder
     },
     {
-      path:'/my_movie',
-      name:'my_movie',
-      component:MyMovie
-    },
-    {
       path:'/modify_username',
       name:'modify_username',
       component:ModifyUserName
@@ -106,10 +99,6 @@ export default new Router({
     {
       path:'/select_seat',
       component:SelectSeat
-    },
-    {
-      path:'/comment_panel',
-      component:CommentPanel
     },
     {
       path:'/search_cinema',

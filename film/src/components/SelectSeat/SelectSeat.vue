@@ -21,14 +21,18 @@
         <span>6</span>
       </div>
       <div class="seat-container">
-        <div class="row" v-if="hackReset" v-for="(itemI,indexI) in seatIJ" :key="indexI">
-          <span class="seat"
-            v-for="(itemJ,indexJ) in itemI"
-            :key="indexJ"
-            :class="{'icon-sold-seat':itemJ===1,'icon-empty-seat':itemJ===0,'icon-selected-seat':itemJ===2}"
-            @click.prevent="handleSelectSeat(indexI,indexJ)"
-          ></span>
+        <!-- v-if 和 v-for 不建议同时使用 -->
+        <div class="vif" v-if="hackReset">
+          <div class="row"  v-for="(itemI,indexI) in seatIJ" :key="indexI">
+            <span class="seat"
+              v-for="(itemJ,indexJ) in itemI"
+              :key="indexJ"
+              :class="{'icon-sold-seat':itemJ===1,'icon-empty-seat':itemJ===0,'icon-selected-seat':itemJ===2}"
+              @click.prevent="handleSelectSeat(indexI,indexJ)"
+            ></span>
+          </div>
         </div>
+        
       </div>
       <div class="seat-example">
         <div class="example empty-example"><span class="icon icon-empty-seat"></span>可选</div>

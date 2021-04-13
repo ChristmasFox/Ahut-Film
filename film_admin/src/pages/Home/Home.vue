@@ -37,7 +37,7 @@
                 <span slot="title">用户管理</span>
               </el-menu-item>
               <el-menu-item index="/movie_manage" @click="handleMenuItemClick('/movie_manage')">
-                <i class="el-icon-s-kpi"></i>
+                <i class="el-icon-s-comment"></i>
                 <span slot="title">电影管理</span>
               </el-menu-item>
               <el-menu-item index="/cinema_manage" @click="handleMenuItemClick('/cinema_manage')">
@@ -51,10 +51,6 @@
               <el-menu-item index="/movie_schedule" @click="handleMenuItemClick('/movie_schedule')">
                 <i class="el-icon-s-fold"></i>
                 <span slot="title">电影排片</span>
-              </el-menu-item>
-              <el-menu-item index="/comment_manage" @click="handleMenuItemClick('/comment_manage')">
-                <i class="el-icon-s-comment"></i>
-                <span slot="title">评论管理</span>
               </el-menu-item>
               <el-menu-item index="/order_manage" @click="handleMenuItemClick('/order_manage')">
                 <i class="el-icon-s-ticket"></i>

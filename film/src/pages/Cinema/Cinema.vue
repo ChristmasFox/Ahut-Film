@@ -2,7 +2,7 @@
     <div id="cinema">
       <div class="header">
         <div class="nav">
-          <span class="location">广州</span>
+          <span class="location">安工大</span>
           <span class="title">影院</span>
           <span class=" icon-search" @click="$router.push('search_cinema')"></span>
         </div>
@@ -12,7 +12,7 @@
           <div class="left">
             <div class="name ellipsis">{{item.cinema_name}}</div>
             <div class="address ellipsis">{{item.specified_address}}</div>
-            <div class="label-block"><span>小吃</span><span>4D厅</span><span>巨幕厅</span><span>杜比全景声厅</span></div>
+            <div class="label-block"><span>小吃5.5元起</span><span>折扣卡</span><span>原版3D</span><span>杜比全景声厅</span></div>
           </div>
           <!--<div class="right">-->
             <!--<div class="price-block"><span class="price">23</span>元起</div>-->
