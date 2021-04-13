@@ -33,7 +33,7 @@ npm install
 
 ```bash
 #输入命令前要先进入到film_api中
-nodemon app.js
+npm start (nodemon app.js)
 ```
 
 ##### 2. 启动前端页面项目
