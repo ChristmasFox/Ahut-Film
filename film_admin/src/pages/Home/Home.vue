@@ -4,7 +4,7 @@
       <div class="head-bar" v-if="adminInfo.name">
         <div class="left">
           <i class="icon-film-logo" style="font-size: 48px;margin-right: 5px;"></i>
-          <span slot="title" style="font-size: 16px;font-weight: bolder">淘气电影</span>
+          <span slot="title" style="font-size: 16px;font-weight: bolder">安工大电影</span>
         </div>
         <div class="right">
           <img
@@ -31,7 +31,7 @@
       <div class="section">
         <div class="nav-bar">
           <el-menu :default-active="currentMenuIndex" class="el-menu-vertical">
-            
+
               <el-menu-item index="/user_manage" @click="handleMenuItemClick('/user_manage')">
                 <i class="el-icon-user-solid"></i>
                 <span slot="title">用户管理</span>

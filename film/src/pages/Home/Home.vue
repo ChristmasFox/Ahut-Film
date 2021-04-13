@@ -1,7 +1,7 @@
 <template>
     <div id="home">
         <div :class="['search-header',{'active':headerActive}]">
-          <span class="location">广州</span>
+          <span class="location">安徽工业大学</span>
           <span class="search"><span class="icon-search"></span><input type="text" placeholder="找电影、影院" @focus="$router.push('search_all')"></span>
           <span class="date"><span class="calender"><span class="day">{{new Date().getDate()<10?'0'+new Date().getDate():new Date().getDate()}}</span></span></span>
         </div>
