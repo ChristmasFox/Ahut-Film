@@ -19,6 +19,9 @@
           <div class="list">
             <div class="item" @click="viewMyOrder">我的订单 <span class="icon-more"></span></div>
           </div>
+          <div class="list">
+            <div class="item" @click="delCookie">清除缓存 <span class="icon-more"></span></div>
+          </div>
       </div>
     </div>
 </template>
@@ -38,6 +41,9 @@
           this.loadUserInfo();
         },
         methods:{
+          delCookie() {
+            alert("清除缓存成功")
+          },
           //用户头像
           userAvatar(){
             if (this.jsonData){

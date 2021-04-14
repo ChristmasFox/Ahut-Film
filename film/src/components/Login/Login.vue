@@ -3,12 +3,7 @@
       <div class="top">
         <span class="icon-close" @click="$router.go(-1)"></span>
       </div>
-      <div class="login-container">
-        <div class="login-header logo">
-          <span class="icon icon-film-logo"></span>
-          <p class="title">安工大电影</p>
-          <i class="eng-title">Monkey Movie</i>
-        </div>
+      <div class="login-container">   
         <div class="login-content">
           <div class="login-type">
             <span :class="{active:loginType}" @click="changeLoginType">验证码登录</span>
@@ -33,10 +28,6 @@
                 </section>
                 <section class="login-info login-verification">
                   <input type="tel" placeholder="验证码" v-model="phoneCode">
-                </section>
-                <section class="login-info login-hint">
-                  温馨提示：未注册的手机号，验证后将自动注册账户，且代表已同意
-                  <a href="javascript:;">《服务协议与隐私政策》</a>
                 </section>
               </div>
               <!--账号登录部分-->
@@ -217,7 +208,7 @@
       .name
         width 60%
     .login-container
-      margin-top 1.2rem
+      margin-top 3rem
       display flex
       justify-content center
       align-items center
@@ -255,6 +246,7 @@
           margin-bottom .25rem
           span
             margin .25rem
+            padding 0 .9rem
             padding-bottom .25rem
             box-sizing border-box
           .active
@@ -275,17 +267,20 @@
               .login-info
                 position relative
                 margin-bottom .25rem
-                width 70%
+                width 90%
                 input
                   width 100%
                   height .8rem
                   padding-left .2rem
                   box-sizing border-box
-                  border .02rem solid #888
-                  border-radius .12rem
+                  // border .02rem solid #888
+                  border 0
+                  border-bottom .02rem solid #757
+                  outline none
+                  // border-radius .12rem
                   outline 0
                   &:focus
-                    border: 0.02rem solid #dd2727;
+                    // border: 0.02rem solid #dd2727;
               .login-info > button
                 position absolute
                 top 50%
@@ -314,7 +309,7 @@
                   color #dd2727
             .login-submit
               display block
-              width 70%
+              width 90%
               height .8rem
               margin .16rem auto
               border-radius .12rem

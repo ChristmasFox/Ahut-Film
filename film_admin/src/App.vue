@@ -25,7 +25,8 @@
     Option,
     Dialog,
     Upload,
-    Cascader
+    Cascader,
+    Card
   } from 'element-ui'
   Vue.use(Menu);
   Vue.use(MenuItem);
@@ -46,6 +47,7 @@
   Vue.use(Dialog);
   Vue.use(Upload);
   Vue.use(Cascader);
+  Vue.use(Card)
   export default {
     name: 'App'
   }

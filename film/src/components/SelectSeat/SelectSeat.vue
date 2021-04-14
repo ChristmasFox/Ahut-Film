@@ -67,11 +67,13 @@
             cinemaInfo:{},
             movieInfo:{},
             scheduleInfo:{},
+            // 记录精确座位信息(如55)
             seatInfo:'',
             seatCount:0,
             selectedSeat:false,
             hackReset:true,
             selectedSeatInfo:[],
+            // 座位信息 0=可选, 1=不可选, 2=已选(当前在操作)
             seatIJ:[
               [0,0,0,0,0,0,0,0,0,0],
               [0,0,0,0,0,0,0,0,0,0],
@@ -101,13 +103,16 @@
               json = await getScheduleById(this.$route.query.schedule_id);
               if (json.success_code===200) {
                 this.scheduleInfo = json.data;
+                // 将此影厅已选座的信息加载到页面上
                 this.seatInfo = this.scheduleInfo.seat_info;
                 if (this.seatInfo){
                   this.seatInfo = JSON.parse(this.seatInfo);
                   this.seatInfo.forEach((value)=>{
                     if (value%10!==0){
+                      // 将第 value/10 排 value%10-1 座 设为1 表示不可选
                       this.seatIJ[parseInt(value/10)][value%10-1] = 1;
                     } else{
+                      // 第 value/10 排 最后一位(10) 座
                       this.seatIJ[parseInt(value/10)-1][9] = 1;
                     }
                   });
@@ -129,6 +134,7 @@
                   this.selectedSeat = true;
                 }
               }
+              // 取消选择
               else if (this.seatIJ[indexI][indexJ]===2){
                 this.seatIJ[indexI][indexJ]=0;
                 this.seatCount-=1;
